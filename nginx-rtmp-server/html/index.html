@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Cache-Control" content="no-cache">
+    <title>DOCKER NGINX TEST</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+  <body>
+    <h1>TESTE DE STREAMING FFMPEG</h1>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+    <video id="video" width="720" height="405" src="" controls></video>
+    <script>
+      var video = document.getElementById('video');
+      var videoSrc = 'http://localhost:4000/hls/.m3u8';
+      //
+      // First check for native browser HLS support
+      //
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.setAttribute("src", videoSrc)
+        console.log("Can play hls natively.");
+        //
+        // If no native HLS support, check if HLS.js is supported
+        //
+      } else if (Hls.isSupported()) {
+        console.log("Can't play hls natively.");
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+services:
+  rtmp-server:
+    build: ./nginx-rtmp-server
+    ports:
+      - "1935:1935"
+      - "4000:4000"
