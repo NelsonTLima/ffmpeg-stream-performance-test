@@ -11,6 +11,18 @@ media_cpu = df_cpu.rolling(window=5).mean().iloc[-1]
 media_mem = df_mem.rolling(window=5).mean().iloc[-1]
 media_cpu_time = df_cpu_time.rolling(window=5).mean().iloc[-1]
 
+medias = pd.concat([
+        media_cpu.transpose(),
+        media_mem.transpose(),
+        media_cpu_time.transpose()], axis=1)
+
+medias.columns = ['CPU', 'MEM', 'CPU_TIME']
+
+with open('./reports/medias.txt', 'w') as file:
+        file.write(medias.to_string())
+
+medias.to_csv('./reports/medias.csv')
+
 system("mkdir -p charts/cpu")
 for i in range(1,6):
         cpu_experiment = df_cpu.iloc[i-1]
