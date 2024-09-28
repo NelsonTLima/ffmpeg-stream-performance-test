@@ -37,7 +37,7 @@ def server_up():
                         print(line)
                         words_in_line = line.split()
 
-                if output and words_in_line[0] == 'Successfully':
+                if (output and len(words_in_line) > 0 and (words_in_line[0] == 'Successfully' or words_in_line[0] == 'Attaching')):
                         rtmp_status = UP
 
         while rtmp_status == UP:
