@@ -39,9 +39,16 @@ Se o comando docker-compose não funcionar, talvez você deva criar um link simb
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ```
 
+Os binários baixados da internet, por padrão não podem ser bicados, portanto, é necessário usar o comando chmod para aplicar
+permissões de execução.
+
+```bash
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
 ### Informações oficiais do docker-compose e do ffmpeg
 
-Informações para baixar e instalar o docker-compose podem ser encontradas [aqui](https://docs.docker.com/compose/install/standalone/)
+Informações para baixar e instalar o docker-compose podem ser encontradas [aqui](https://docs.docker.com/compose/install/standalone/)<br>
 Informações para baixar e instalar o FFMPEG podem ser encontradas [aqui](https://www.ffmpeg.org/download.html)
 
 ### plot charts
